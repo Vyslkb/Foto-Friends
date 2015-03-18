@@ -10,6 +10,8 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'bcrypt', '~> 3.1.5', require: "bcrypt"
 gem 'bootstrap-sass', '~> 3.3.4'
+gem "paperclip"
+gem 'aws-sdk'
 
 group :development do
   gem 'better_errors'
