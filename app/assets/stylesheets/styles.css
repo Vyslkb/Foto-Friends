@@ -1,0 +1,19 @@
+li {
+  margin-top: 1em;
+}
+
+ul {
+  margin-left: 2em;
+}
+
+.center {
+  text-align: center;
+}
+
+.right {
+  text-align: right;
+}
+
+.submit {
+  margin-top: 2em;
+}

@@ -1,20 +1,30 @@
-<h1>Profiles</h1>
 
-  <% if current_user %>
-  <p> You are logged in as <%= link_to current_user[:name], user_path(current_user) %> </p>
-  <% end %>
-
-  <%= link_to "log-out", log_out_path %>
-<p>
-  <%= link_to "Register New Account" %>
-</p>
-<p>
-  <%= link_to "Login to an Existing Account", log_in_path %>
-</p>
-<ul>
-  <% if @users.nil? == false %>
-  <% @users.each do |user| %>
-  <li><%= link_to user.name, user_path(user) %></li>
-  <% end %>
-  <% end %>
-</ul>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 center">
+      <h1>Profiles</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+        <% if current_user %>
+        <p> You are logged in as <h2><%= link_to current_user[:name], user_path(current_user) %></h2> </p>
+        <% end %>
+        <p>  <%= link_to "log-out", log_out_path %></p>
+        <p><%= link_to "Register New Account", new_user_path %>
+      </p>
+      <p>
+        <%= link_to "Login to an Existing Account", log_in_path %>
+      </p>
+        <% if @users.nil? == false %>
+            <% @users.each do |user| %>
+            <div class="jumbotron">
+              <li><%= link_to user.name, user_path(user) %></li>
+              <% if user.photos.any? %>
+                <%= image_tag user.photos[0].photo(:thumb) %>
+              <% end %>
+            </div>
+          <% end %>
+        <% end %>
+    </div>
+  </div>

@@ -1,15 +1,20 @@
-class LessonsController < ApplicationController
+class PhotosController < ApplicationController
+  def index
+    @photo = Photo.all.order("created_at DESC")
+  end
+
+
   def new
     @user = User.find(params[:user_id])
-    @photo = Photo.new
-    render :new
+    @photo = Photo.create()
   end
 
   def create
     @user = User.find(params[:user_id])
-    @photo = @user.photos.new(photo_params)
+    @photo = Photo.create(photo_params)
 
     if @photo.save
+      @user.photos << @photo
       redirect_to user_path(@user)
     else
       render :new
@@ -17,8 +22,7 @@ class LessonsController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:user_id])
-    @photo = Photo.find(params[:id])
+
   end
 
   def edit
@@ -36,14 +40,18 @@ class LessonsController < ApplicationController
   def update
     @user = User.find(params[:user_id])
     @photo = Photo.find(params[:id])
-    if @photo.update(params[:photo])
+    @photo << @user
+    if @photo.update(params[:user])
       redirect_to user_path(@photo.user)
     else
+      flash[:alert] = "Did not tag user to foto. Please contact the president."
       render :edit
     end
   end
 
+
+private
   def photo_params
-    params.require(:photo).permit(:title, :body, :number)
+    params.require(:photo).permit(:photo, :url, :html, :title, :user)
   end
 end
