@@ -1,28 +1,29 @@
-== README
+Blogger App
+===============
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a small Rails app created for educational purposes. It is a social app which allows a user to create profiles and upload photos to them. It lists photos and profile pictures on the front page.
 
-Things you may want to cover:
+## Installation
 
-* Ruby version
+1. Navigate to a local directory of your choice and clone the project with `git clone http://github.com/alexbeeken/Foto-Friends`.
 
-* System dependencies
+2. Navigate inside of the app's home directory and run `rake db:create`.
 
-* Configuration
+3. Next, run `rake db:migrate`.
 
-* Database creation
+4. Start a Postgres server with `postgres`. For help installing check out some guides [here]( https://wiki.postgresql.org/wiki/Detailed_installation_guides).
 
-* Database initialization
+5. Run `rails server`.
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+3. Inside of your browser, go to the url: `localhost:3000`.
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+## Contributing
+
+Fork the project and then replace the url in Installation instructions with that of your own copy.
+
+If you are confused don't hesitate to email me at aeb242@gmail.com.
+
+## License
+
+MIT
